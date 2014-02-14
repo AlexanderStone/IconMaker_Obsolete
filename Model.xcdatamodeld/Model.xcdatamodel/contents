@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1171" systemVersion="11E53" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Application" syncable="YES">
+        <attribute name="appStoreName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="iconFile114" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="rating" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="springBoardName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="stars" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="documentationScreenshots" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DocumentationScreenshot" inverseName="application" inverseEntity="DocumentationScreenshot" syncable="YES"/>
+        <relationship name="iconFiles" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="IconFile" inverseName="application" inverseEntity="IconFile" syncable="YES"/>
+        <relationship name="promotionScreenshots" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PromotionalScreenshot" inverseName="application" inverseEntity="PromotionalScreenshot" syncable="YES"/>
+        <relationship name="salesCopyFiles" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SalesCopy" inverseName="application" inverseEntity="SalesCopy" syncable="YES"/>
+    </entity>
+    <entity name="DocumentationScreenshot" syncable="YES">
+        <attribute name="createDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="sticky1" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="sticky2" optional="YES" attributeType="Binary" syncable="YES"/>
+        <relationship name="application" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Application" inverseName="documentationScreenshots" inverseEntity="Application" syncable="YES"/>
+    </entity>
+    <entity name="IconFile" representedClassName="IconFile" syncable="YES">
+        <attribute name="activeViewName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="appStoreName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="companyName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="containerOriginX" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="containerOriginY" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="containerSizeHeight" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="containerSizeWidth" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="createDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="frameHueShift" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="frameID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="frameName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="glossEffect" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="iconID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="image114" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="localImageFolder" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="scrollViewOffsetX" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="scrollViewOffsetY" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="springBoardName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="webViewAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="webViewOnTop" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="zoomScale" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="application" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Application" inverseName="iconFiles" inverseEntity="Application" syncable="YES"/>
+        <relationship name="images" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Image" inverseName="iconFile" inverseEntity="Image" syncable="YES"/>
+        <relationship name="labels" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Label" inverseName="iconFile" inverseEntity="Label" syncable="YES"/>
+        <relationship name="layers" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ScalableLayer" inverseName="iconFile" inverseEntity="ScalableLayer" syncable="YES"/>
+        <relationship name="localImages" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="IconImageLocalFile" inverseName="iconFile" inverseEntity="IconImageLocalFile" syncable="YES"/>
+        <relationship name="wrapper" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="IconFileWrapper" inverseName="iconFile" inverseEntity="IconFileWrapper" syncable="YES"/>
+    </entity>
+    <entity name="IconFileWrapper" representedClassName="IconFileWrapper" syncable="YES">
+        <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="iconFile" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="IconFile" inverseName="wrapper" inverseEntity="IconFile" syncable="YES"/>
+    </entity>
+    <entity name="IconImageLocalFile" representedClassName="IconImageLocalFile" syncable="YES">
+        <attribute name="fileName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="iconFile" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="IconFile" inverseName="localImages" inverseEntity="IconFile" syncable="YES"/>
+    </entity>
+    <entity name="Image" representedClassName="Image" syncable="YES">
+        <attribute name="centerX" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="centerY" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="height" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="imageData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="transparency" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="width" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="iconFile" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="IconFile" inverseName="images" inverseEntity="IconFile" syncable="YES"/>
+    </entity>
+    <entity name="Label" representedClassName="Label" syncable="YES">
+        <attribute name="centerX" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="centerY" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="height" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="labelText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="width" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="iconFile" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="IconFile" inverseName="labels" inverseEntity="IconFile" syncable="YES"/>
+        <relationship name="textProperty" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="TextProperties" syncable="YES"/>
+    </entity>
+    <entity name="PromotionalScreenshot" syncable="YES">
+        <relationship name="application" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Application" inverseName="promotionScreenshots" inverseEntity="Application" syncable="YES"/>
+    </entity>
+    <entity name="SalesCopy" representedClassName="SalesCopy" syncable="YES">
+        <attribute name="createDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="keywords" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="application" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Application" inverseName="salesCopyFiles" inverseEntity="Application" syncable="YES"/>
+    </entity>
+    <entity name="ScalableLayer" representedClassName="ScalableLayer" syncable="YES">
+        <attribute name="alpha" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="centerX" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
+        <attribute name="centerY" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
+        <attribute name="color1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="color2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fontColor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fontName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="internalOffsetX" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="internalOffsetY" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="internalRotation" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="isReflected" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orientation" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="reservedInt" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="reservedString" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rotationRadians" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="size" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="topDownOrder" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="zoomScale" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="iconFile" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="IconFile" inverseName="layers" inverseEntity="IconFile" syncable="YES"/>
+    </entity>
+    <entity name="TextProperties" representedClassName="TextProperties" syncable="YES">
+        <attribute name="alignment" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="colorAlpha" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
+        <attribute name="colorBlue" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
+        <attribute name="colorGreen" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="colorRed" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="family" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="size" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Application" positionX="160" positionY="192" width="128" height="60"/>
+        <element name="DocumentationScreenshot" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="IconFile" positionX="160" positionY="192" width="128" height="480"/>
+        <element name="IconFileWrapper" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="IconImageLocalFile" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="Image" positionX="160" positionY="192" width="128" height="165"/>
+        <element name="Label" positionX="160" positionY="192" width="128" height="150"/>
+        <element name="PromotionalScreenshot" positionX="160" positionY="192" width="128" height="45"/>
+        <element name="SalesCopy" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="ScalableLayer" positionX="160" positionY="192" width="128" height="405"/>
+        <element name="TextProperties" positionX="160" positionY="192" width="128" height="180"/>
+    </elements>
+</model>
